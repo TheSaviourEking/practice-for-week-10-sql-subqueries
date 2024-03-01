@@ -33,6 +33,30 @@ FROM
 WHERE
   name = 'Garfield';
 
+-- Bonus
+-- Phase 1: Dynamic INSERT using subquery with multiple insertions
+INSERT INTO
+  toys (cat_id, name)
+SELECT
+  id,
+  'Cat Bed'
+FROM
+  cats
+WHERE
+  birth_year < 2013;
+
+-- Phase 2: Backup the tables using subquery
+-- cats backup
+INSERT INTO
+  cats_backup
+SELECT
+  *
+FROM
+  cats;
+
+-- toys backup
+INSERT INTO
+  toys_backup
 SELECT
   *
 FROM
